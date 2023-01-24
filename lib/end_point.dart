@@ -1,14 +1,12 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:movies/data/movie.dart';
-import 'constants.dart';
+
+const baseUrl = 'api.themoviedb.org';
+const apiKey = '7793f07518f4df0682c6c7d5657e9a5a';
 
 Future<List<Movie>> getAllTopRatedMovies() async {
-  final url = Uri.https(
-    Constants.baseUrl,
-    '3/movie/top_rated',
-    {'api_key': Constants.apiKey}
-  );
+  final url = Uri.https(baseUrl, '3/movie/top_rated', {'api_key': apiKey});
 
   final response = await http.get(url);
   final responsejson = jsonDecode(response.body);
