@@ -16,7 +16,6 @@ class Movie with _$Movie {
     String? overview,
     String? release_date,
     double? vote_average,
-    String? original_language,
   }) = _Movie;
 
   factory Movie.fromJson(Map<String, Object?> json) => _$MovieFromJson(json);

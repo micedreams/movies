@@ -26,7 +26,6 @@ mixin _$Movie {
   String? get overview => throw _privateConstructorUsedError;
   String? get release_date => throw _privateConstructorUsedError;
   double? get vote_average => throw _privateConstructorUsedError;
-  String? get original_language => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,8 +43,7 @@ abstract class $MovieCopyWith<$Res> {
       String? title,
       String? overview,
       String? release_date,
-      double? vote_average,
-      String? original_language});
+      double? vote_average});
 }
 
 /// @nodoc
@@ -67,7 +65,6 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
     Object? overview = freezed,
     Object? release_date = freezed,
     Object? vote_average = freezed,
-    Object? original_language = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -94,10 +91,6 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
           ? _value.vote_average
           : vote_average // ignore: cast_nullable_to_non_nullable
               as double?,
-      original_language: freezed == original_language
-          ? _value.original_language
-          : original_language // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -114,8 +107,7 @@ abstract class _$$_MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
       String? title,
       String? overview,
       String? release_date,
-      double? vote_average,
-      String? original_language});
+      double? vote_average});
 }
 
 /// @nodoc
@@ -133,7 +125,6 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
     Object? overview = freezed,
     Object? release_date = freezed,
     Object? vote_average = freezed,
-    Object? original_language = freezed,
   }) {
     return _then(_$_Movie(
       id: freezed == id
@@ -160,10 +151,6 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
           ? _value.vote_average
           : vote_average // ignore: cast_nullable_to_non_nullable
               as double?,
-      original_language: freezed == original_language
-          ? _value.original_language
-          : original_language // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -177,8 +164,7 @@ class _$_Movie with DiagnosticableTreeMixin implements _Movie {
       this.title,
       this.overview,
       this.release_date,
-      this.vote_average,
-      this.original_language});
+      this.vote_average});
 
   factory _$_Movie.fromJson(Map<String, dynamic> json) =>
       _$$_MovieFromJson(json);
@@ -195,12 +181,10 @@ class _$_Movie with DiagnosticableTreeMixin implements _Movie {
   final String? release_date;
   @override
   final double? vote_average;
-  @override
-  final String? original_language;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Movie(id: $id, poster_path: $poster_path, title: $title, overview: $overview, release_date: $release_date, vote_average: $vote_average, original_language: $original_language)';
+    return 'Movie(id: $id, poster_path: $poster_path, title: $title, overview: $overview, release_date: $release_date, vote_average: $vote_average)';
   }
 
   @override
@@ -213,8 +197,7 @@ class _$_Movie with DiagnosticableTreeMixin implements _Movie {
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('overview', overview))
       ..add(DiagnosticsProperty('release_date', release_date))
-      ..add(DiagnosticsProperty('vote_average', vote_average))
-      ..add(DiagnosticsProperty('original_language', original_language));
+      ..add(DiagnosticsProperty('vote_average', vote_average));
   }
 
   @override
@@ -231,15 +214,13 @@ class _$_Movie with DiagnosticableTreeMixin implements _Movie {
             (identical(other.release_date, release_date) ||
                 other.release_date == release_date) &&
             (identical(other.vote_average, vote_average) ||
-                other.vote_average == vote_average) &&
-            (identical(other.original_language, original_language) ||
-                other.original_language == original_language));
+                other.vote_average == vote_average));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, poster_path, title, overview,
-      release_date, vote_average, original_language);
+      release_date, vote_average);
 
   @JsonKey(ignore: true)
   @override
@@ -262,8 +243,7 @@ abstract class _Movie implements Movie {
       final String? title,
       final String? overview,
       final String? release_date,
-      final double? vote_average,
-      final String? original_language}) = _$_Movie;
+      final double? vote_average}) = _$_Movie;
 
   factory _Movie.fromJson(Map<String, dynamic> json) = _$_Movie.fromJson;
 
@@ -279,8 +259,6 @@ abstract class _Movie implements Movie {
   String? get release_date;
   @override
   double? get vote_average;
-  @override
-  String? get original_language;
   @override
   @JsonKey(ignore: true)
   _$$_MovieCopyWith<_$_Movie> get copyWith =>
