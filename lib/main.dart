@@ -14,7 +14,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Movies',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        brightness: Brightness.dark,
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        pageTransitionsTheme: const PageTransitionsTheme(
+          builders: {
+            TargetPlatform.android: ZoomPageTransitionsBuilder(),
+            TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+          },
+        ),
+        useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Top Movies'),
       onGenerateRoute: (settings) {
