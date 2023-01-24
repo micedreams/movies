@@ -36,9 +36,16 @@ class DBProvider {
   }
 
   // Insert employee on database
-  createMovie(Movie newmovie) async {
+  createMovie(Movie newmovie, {bool onRefresh = false}) async {
     final db = await database;
-    final result = await db?.insert('Movie', newmovie.toJson());
+
+    final result = onRefresh
+        ? await db?.insert(
+            'Movie',
+            newmovie.toJson(),
+            conflictAlgorithm: ConflictAlgorithm.replace,
+          )
+        : await db?.insert('Movie', newmovie.toJson());
 
     return result;
   }

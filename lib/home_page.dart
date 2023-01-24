@@ -36,14 +36,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
             final movieList = snapshot.data ?? [];
 
-            return ListView.separated(
-              itemCount: movieList.length,
-              itemBuilder: (context, index) {
-                final movie = movieList[index] ?? const Movie();
-
-                return MoviePreviewTile(movie: movie);
+            return RefreshIndicator(
+              onRefresh: () async {
+                await getAllTopRatedMovies(onRefresh: true);
               },
-              separatorBuilder: (context, index) => const Divider(),
+              child: ListView.separated(
+                itemCount: movieList.length,
+                itemBuilder: (context, index) {
+                  final movie = movieList[index] ?? const Movie();
+
+                  return MoviePreviewTile(movie: movie);
+                },
+                separatorBuilder: (context, index) => const Divider(),
+              ),
             );
           }),
     );

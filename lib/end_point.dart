@@ -18,7 +18,7 @@ Future<List<Movie>> getAllTopRatedMoviesFromDB() async {
   return movieList;
 }
 
-Future<List<Movie>> getAllTopRatedMovies() async {
+Future<List<Movie>> getAllTopRatedMovies({bool onRefresh = false}) async {
   final movieList = <Movie>[];
 
   final url = Uri.https(baseApiUrl, '3/movie/top_rated', {'api_key': apiKey});
@@ -30,7 +30,10 @@ Future<List<Movie>> getAllTopRatedMovies() async {
   for (var result in results) {
     movieList.add(Movie.fromJson(result));
 
-    await DBProvider.db.createMovie(Movie.fromJson(result));
+    await DBProvider.db.createMovie(
+      Movie.fromJson(result),
+      onRefresh: onRefresh,
+    );
   }
 
   return movieList;
