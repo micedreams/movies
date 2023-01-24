@@ -1,11 +1,16 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/end_point.dart';
 import 'data/movie.dart';
 
 class MovieDetailsConfig {
-  const MovieDetailsConfig({required this.movie});
+  const MovieDetailsConfig({
+    required this.movie,
+    required this.uniqueKey,
+  });
 
   final Movie movie;
+  final UniqueKey uniqueKey;
 }
 
 class MovieDetailsPage extends StatefulWidget {
@@ -33,21 +38,13 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.network(
-                  '$baseImageUrl${movie.poster_path}',
-                  fit: BoxFit.fill,
-                  loadingBuilder: (BuildContext context, Widget child,
-                      ImageChunkEvent? loadingProgress) {
-                    if (loadingProgress == null) return child;
-                    return Center(
-                      child: CircularProgressIndicator(
-                        value: loadingProgress.expectedTotalBytes != null
-                            ? loadingProgress.cumulativeBytesLoaded /
-                                loadingProgress.expectedTotalBytes!
-                            : null,
-                      ),
-                    );
-                  },
+                CachedNetworkImage(
+                  key: widget.config.uniqueKey,
+                  imageUrl: '$baseImageUrl${movie.poster_path}',
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      CircularProgressIndicator(
+                          value: downloadProgress.progress),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),

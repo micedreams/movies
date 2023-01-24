@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'data/movie.dart';
 import 'end_point.dart';
@@ -12,26 +13,19 @@ class MoviePreviewTile extends StatelessWidget {
   final Movie movie;
 
   @override
-  Widget build(BuildContext context) => ListTile(
+  Widget build(BuildContext context) {
+    final uniqueKey = UniqueKey();
+    return ListTile(
         onTap: () {
           Navigator.pushNamed(context, MovieDetailsPage.routeName,
-              arguments: MovieDetailsConfig(movie: movie));
+              arguments: MovieDetailsConfig(movie: movie, uniqueKey: uniqueKey));
         },
-        leading: Image.network(
-          '$baseImageUrl${movie.poster_path}',
-          fit: BoxFit.fill,
-          loadingBuilder: (BuildContext context, Widget child,
-              ImageChunkEvent? loadingProgress) {
-            if (loadingProgress == null) return child;
-            return Center(
-              child: CircularProgressIndicator(
-                value: loadingProgress.expectedTotalBytes != null
-                    ? loadingProgress.cumulativeBytesLoaded /
-                        loadingProgress.expectedTotalBytes!
-                    : null,
-              ),
-            );
-          },
+        leading: CachedNetworkImage(
+          key: uniqueKey,
+          imageUrl: '$baseImageUrl${movie.poster_path}',
+          progressIndicatorBuilder: (context, url, downloadProgress) =>
+              CircularProgressIndicator(value: downloadProgress.progress),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
         ),
         title: Text(movie.title ?? ''),
         subtitle: Column(
@@ -42,4 +36,5 @@ class MoviePreviewTile extends StatelessWidget {
           ],
         ),
       );
+  }
 }
