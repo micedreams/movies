@@ -1,16 +1,13 @@
 # movies
+##todo:
+Fetch Top rated movies from https://developers.themoviedb.org/3/movies/get-movie-details
+	1.	show list of movies on first page with images
+	2.	show movie details on next screen 
+	3.	store fetched data in local db
+	4.	also cache movies images
+	5.	if user is not connected to internet movie list and details should be displayed with images if data is previously fetched
+	6.	be creative with UI
+	7.	for local db use sqflite
 
-A new Flutter project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Api key= 7793f07518f4df0682c6c7d5657e9a5a
