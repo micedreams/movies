@@ -1,6 +1,6 @@
 # movies
 ## todo:
-Fetch Top rated movies from https://developers.themoviedb.org/3/movies/get-movie-details
+### Fetch Top rated movies from https://developers.themoviedb.org/3/movies/get-movie-details
 
 	1.	show list of movies on first page with images
 	
