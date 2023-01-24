@@ -13,13 +13,13 @@ part 'movie.g.dart';
 @freezed
 class Movie with _$Movie {
   const factory Movie({
-    required int id,
-    required String poster_path,
-    required String title,
-    required String overview,
-    required String release_date,
-    required double vote_average,
-    required String original_language,
+    int? id,
+    String? poster_path,
+    String? title,
+    String? overview,
+    String? release_date,
+    double? vote_average,
+    String? original_language,
   }) = _Movie;
 
   factory Movie.fromJson(Map<String, Object?> json) => _$MovieFromJson(json);

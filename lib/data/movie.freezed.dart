@@ -20,13 +20,13 @@ Movie _$MovieFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Movie {
-  int get id => throw _privateConstructorUsedError;
-  String get poster_path => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get overview => throw _privateConstructorUsedError;
-  String get release_date => throw _privateConstructorUsedError;
-  double get vote_average => throw _privateConstructorUsedError;
-  String get original_language => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  String? get poster_path => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get overview => throw _privateConstructorUsedError;
+  String? get release_date => throw _privateConstructorUsedError;
+  double? get vote_average => throw _privateConstructorUsedError;
+  String? get original_language => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,13 +39,13 @@ abstract class $MovieCopyWith<$Res> {
       _$MovieCopyWithImpl<$Res, Movie>;
   @useResult
   $Res call(
-      {int id,
-      String poster_path,
-      String title,
-      String overview,
-      String release_date,
-      double vote_average,
-      String original_language});
+      {int? id,
+      String? poster_path,
+      String? title,
+      String? overview,
+      String? release_date,
+      double? vote_average,
+      String? original_language});
 }
 
 /// @nodoc
@@ -61,43 +61,43 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? poster_path = null,
-    Object? title = null,
-    Object? overview = null,
-    Object? release_date = null,
-    Object? vote_average = null,
-    Object? original_language = null,
+    Object? id = freezed,
+    Object? poster_path = freezed,
+    Object? title = freezed,
+    Object? overview = freezed,
+    Object? release_date = freezed,
+    Object? vote_average = freezed,
+    Object? original_language = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      poster_path: null == poster_path
+              as int?,
+      poster_path: freezed == poster_path
           ? _value.poster_path
           : poster_path // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
+              as String?,
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      overview: null == overview
+              as String?,
+      overview: freezed == overview
           ? _value.overview
           : overview // ignore: cast_nullable_to_non_nullable
-              as String,
-      release_date: null == release_date
+              as String?,
+      release_date: freezed == release_date
           ? _value.release_date
           : release_date // ignore: cast_nullable_to_non_nullable
-              as String,
-      vote_average: null == vote_average
+              as String?,
+      vote_average: freezed == vote_average
           ? _value.vote_average
           : vote_average // ignore: cast_nullable_to_non_nullable
-              as double,
-      original_language: null == original_language
+              as double?,
+      original_language: freezed == original_language
           ? _value.original_language
           : original_language // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -109,13 +109,13 @@ abstract class _$$_MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
-      String poster_path,
-      String title,
-      String overview,
-      String release_date,
-      double vote_average,
-      String original_language});
+      {int? id,
+      String? poster_path,
+      String? title,
+      String? overview,
+      String? release_date,
+      double? vote_average,
+      String? original_language});
 }
 
 /// @nodoc
@@ -127,43 +127,43 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? poster_path = null,
-    Object? title = null,
-    Object? overview = null,
-    Object? release_date = null,
-    Object? vote_average = null,
-    Object? original_language = null,
+    Object? id = freezed,
+    Object? poster_path = freezed,
+    Object? title = freezed,
+    Object? overview = freezed,
+    Object? release_date = freezed,
+    Object? vote_average = freezed,
+    Object? original_language = freezed,
   }) {
     return _then(_$_Movie(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      poster_path: null == poster_path
+              as int?,
+      poster_path: freezed == poster_path
           ? _value.poster_path
           : poster_path // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
+              as String?,
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      overview: null == overview
+              as String?,
+      overview: freezed == overview
           ? _value.overview
           : overview // ignore: cast_nullable_to_non_nullable
-              as String,
-      release_date: null == release_date
+              as String?,
+      release_date: freezed == release_date
           ? _value.release_date
           : release_date // ignore: cast_nullable_to_non_nullable
-              as String,
-      vote_average: null == vote_average
+              as String?,
+      vote_average: freezed == vote_average
           ? _value.vote_average
           : vote_average // ignore: cast_nullable_to_non_nullable
-              as double,
-      original_language: null == original_language
+              as double?,
+      original_language: freezed == original_language
           ? _value.original_language
           : original_language // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -172,31 +172,31 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
 @JsonSerializable()
 class _$_Movie with DiagnosticableTreeMixin implements _Movie {
   const _$_Movie(
-      {required this.id,
-      required this.poster_path,
-      required this.title,
-      required this.overview,
-      required this.release_date,
-      required this.vote_average,
-      required this.original_language});
+      {this.id,
+      this.poster_path,
+      this.title,
+      this.overview,
+      this.release_date,
+      this.vote_average,
+      this.original_language});
 
   factory _$_Movie.fromJson(Map<String, dynamic> json) =>
       _$$_MovieFromJson(json);
 
   @override
-  final int id;
+  final int? id;
   @override
-  final String poster_path;
+  final String? poster_path;
   @override
-  final String title;
+  final String? title;
   @override
-  final String overview;
+  final String? overview;
   @override
-  final String release_date;
+  final String? release_date;
   @override
-  final double vote_average;
+  final double? vote_average;
   @override
-  final String original_language;
+  final String? original_language;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -257,30 +257,30 @@ class _$_Movie with DiagnosticableTreeMixin implements _Movie {
 
 abstract class _Movie implements Movie {
   const factory _Movie(
-      {required final int id,
-      required final String poster_path,
-      required final String title,
-      required final String overview,
-      required final String release_date,
-      required final double vote_average,
-      required final String original_language}) = _$_Movie;
+      {final int? id,
+      final String? poster_path,
+      final String? title,
+      final String? overview,
+      final String? release_date,
+      final double? vote_average,
+      final String? original_language}) = _$_Movie;
 
   factory _Movie.fromJson(Map<String, dynamic> json) = _$_Movie.fromJson;
 
   @override
-  int get id;
+  int? get id;
   @override
-  String get poster_path;
+  String? get poster_path;
   @override
-  String get title;
+  String? get title;
   @override
-  String get overview;
+  String? get overview;
   @override
-  String get release_date;
+  String? get release_date;
   @override
-  double get vote_average;
+  double? get vote_average;
   @override
-  String get original_language;
+  String? get original_language;
   @override
   @JsonKey(ignore: true)
   _$$_MovieCopyWith<_$_Movie> get copyWith =>
