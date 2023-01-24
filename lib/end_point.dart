@@ -1,19 +1,25 @@
-import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:movies/data/movie.dart';
+import 'constants.dart';
 
-Future getAllTopRatedMovies() async {
-  const charactersPath = '3/movie/top_rated';
-  const baseUrl = 'api.themoviedb.org';
-  final queryParameters = <String, String>{
-    'api_key': '7793f07518f4df0682c6c7d5657e9a5a',
-  };
-
-  var url = Uri.https(baseUrl, charactersPath, queryParameters);
+Future<List<Movie>> getAllTopRatedMovies() async {
+  final url = Uri.https(
+    Constants.baseUrl,
+    '3/movie/top_rated',
+    {'api_key': Constants.apiKey}
+  );
 
   final response = await http.get(url);
+  final responsejson = jsonDecode(response.body);
+  final results = responsejson['results'];
+  final movieList = <Movie>[];
 
-  return response;
+  for (var result in results) {
+    movieList.add(Movie.fromJson(result));
+  }
+
+  return movieList;
 }
 
 Future getMovieDetails(String id) async {
@@ -25,13 +31,7 @@ Future getMovieDetails(String id) async {
 
   var url = Uri.https(baseUrl, charactersPath, queryParameters);
 
-   print(url);
-
-
-
   final response = await http.get(url);
-
-  print(response.body);
 
   return response;
 }
