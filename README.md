@@ -1,5 +1,5 @@
 # movies
-##todo:
+## todo:
 Fetch Top rated movies from https://developers.themoviedb.org/3/movies/get-movie-details
 
 	1.	show list of movies on first page with images
@@ -17,4 +17,4 @@ Fetch Top rated movies from https://developers.themoviedb.org/3/movies/get-movie
 	7.	for local db use sqflite
 
 
-Api key= 7793f07518f4df0682c6c7d5657e9a5a
+### Api key= 7793f07518f4df0682c6c7d5657e9a5a
