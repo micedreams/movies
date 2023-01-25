@@ -10,7 +10,7 @@ part 'movie.g.dart';
 @freezed
 class Movie with _$Movie {
   const factory Movie({
-    int? id,
+    required int id,
     String? poster_path,
     String? title,
     String? overview,

@@ -20,7 +20,7 @@ Movie _$MovieFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Movie {
-  int? get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String? get poster_path => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   String? get overview => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $MovieCopyWith<$Res> {
       _$MovieCopyWithImpl<$Res, Movie>;
   @useResult
   $Res call(
-      {int? id,
+      {int id,
       String? poster_path,
       String? title,
       String? overview,
@@ -59,7 +59,7 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? poster_path = freezed,
     Object? title = freezed,
     Object? overview = freezed,
@@ -67,10 +67,10 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
     Object? vote_average = freezed,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       poster_path: freezed == poster_path
           ? _value.poster_path
           : poster_path // ignore: cast_nullable_to_non_nullable
@@ -102,7 +102,7 @@ abstract class _$$_MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int? id,
+      {int id,
       String? poster_path,
       String? title,
       String? overview,
@@ -119,7 +119,7 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? poster_path = freezed,
     Object? title = freezed,
     Object? overview = freezed,
@@ -127,10 +127,10 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
     Object? vote_average = freezed,
   }) {
     return _then(_$_Movie(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       poster_path: freezed == poster_path
           ? _value.poster_path
           : poster_path // ignore: cast_nullable_to_non_nullable
@@ -159,7 +159,7 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
 @JsonSerializable()
 class _$_Movie with DiagnosticableTreeMixin implements _Movie {
   const _$_Movie(
-      {this.id,
+      {required this.id,
       this.poster_path,
       this.title,
       this.overview,
@@ -170,7 +170,7 @@ class _$_Movie with DiagnosticableTreeMixin implements _Movie {
       _$$_MovieFromJson(json);
 
   @override
-  final int? id;
+  final int id;
   @override
   final String? poster_path;
   @override
@@ -238,7 +238,7 @@ class _$_Movie with DiagnosticableTreeMixin implements _Movie {
 
 abstract class _Movie implements Movie {
   const factory _Movie(
-      {final int? id,
+      {required final int id,
       final String? poster_path,
       final String? title,
       final String? overview,
@@ -248,7 +248,7 @@ abstract class _Movie implements Movie {
   factory _Movie.fromJson(Map<String, dynamic> json) = _$_Movie.fromJson;
 
   @override
-  int? get id;
+  int get id;
   @override
   String? get poster_path;
   @override

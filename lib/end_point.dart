@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:movies/data/detail.dart';
 import 'package:movies/data/movie.dart';
 
 import 'db_provider.dart';
@@ -39,10 +40,11 @@ Future<List<Movie>> getAllTopRatedMovies({bool onRefresh = false}) async {
   return movieList;
 }
 
-Future getMovieDetails(String id) async {
+Future<Detail> getMovieDetails(int id) async {
   var url = Uri.https(baseApiUrl, '3/movie/$id', {'api_key': apiKey});
 
   final response = await http.get(url);
+  final responsejson = jsonDecode(response.body);
 
-  return response;
+  return Detail.fromJson(responsejson);
 }
