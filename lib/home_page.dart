@@ -19,35 +19,35 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: FutureBuilder<List<Movie>>(
-          future: getAllTopRatedMoviesFromDB(),
-          builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              return const Center(
-                  child: Text(
-                'No movies to show!!',
-                style: TextStyle(fontSize: 16.0),
-              ));
-            }
+      body: RefreshIndicator(
+        onRefresh: () async {
+          await getAllTopRatedMovies(onRefresh: true);
+        },
+        child: FutureBuilder<List<Movie>>(
+            future: getAllTopRatedMoviesFromDB(),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return const Center(
+                    child: Text(
+                  'No movies to show!!',
+                  style: TextStyle(fontSize: 16.0),
+                ));
+              }
 
-            if (!snapshot.hasData) {
-              return const Center(child: CircularProgressIndicator());
-            }
+              if (!snapshot.hasData) {
+                return const Center(child: CircularProgressIndicator());
+              }
 
-            final movieList = snapshot.data ?? [];
+              final movieList = snapshot.data ?? [];
 
-            return RefreshIndicator(
-              onRefresh: () async {
-                await getAllTopRatedMovies(onRefresh: true);
-              },
-              child: ListView.separated(
+              return ListView.separated(
                 itemCount: movieList.length,
                 itemBuilder: (context, index) =>
                     MoviePreviewTile(movie: movieList[index]),
                 separatorBuilder: (context, index) => const Divider(),
-              ),
-            );
-          }),
+              );
+            }),
+      ),
     );
   }
 }
