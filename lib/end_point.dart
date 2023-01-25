@@ -12,7 +12,7 @@ Future<List<Movie>> getAllTopRatedMoviesFromDB() async {
   final movieList = await DBProvider.db.getAllMovies();
 
   if (movieList.isEmpty) {
-    await getAllTopRatedMovies();
+    movieList.addAll(await getAllTopRatedMovies());
   }
 
   return movieList;

@@ -19,7 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: FutureBuilder<List<Movie?>>(
+      body: FutureBuilder<List<Movie>>(
           future: getAllTopRatedMoviesFromDB(),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
@@ -42,11 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: ListView.separated(
                 itemCount: movieList.length,
-                itemBuilder: (context, index) {
-                  final movie = movieList[index] ?? const Movie();
-
-                  return MoviePreviewTile(movie: movie);
-                },
+                itemBuilder: (context, index) =>
+                    MoviePreviewTile(movie: movieList[index]),
                 separatorBuilder: (context, index) => const Divider(),
               ),
             );
